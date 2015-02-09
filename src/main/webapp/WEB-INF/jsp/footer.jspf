@@ -1,0 +1,67 @@
+<%--
+
+--%>
+			</div>
+
+			<c:set var="navigationTab" value="${pb.fileName}" />
+			<c:if test="${navigationTab ne 'login'}">
+				<div id="nav">
+					<ul class="clearfix">
+						<c:choose>
+							<c:when test="${navigationTab ne 'home'}">
+								<li><strong> <a href="<c:url value="/"/>"> <fmt:message
+												key="navigate.home" />
+									</a>
+								</strong></li>
+							</c:when>
+							<c:otherwise>
+								<!-- Not needed -->
+							</c:otherwise>
+						</c:choose>
+						<c:choose>
+							<c:when test="${navigationTab eq 'error'}">
+								<!--  No account link -->
+							</c:when>
+							<c:when test="${navigationTab ne 'accounts'}">
+								<li><a href="<c:url value="/accounts.html"/>"> <fmt:message
+											key="navigate.accounts" />
+								</a></li>
+							</c:when>
+						</c:choose>
+						<c:if test="${!empty sessionScope['SPRING_SECURITY_CONTEXT']}">
+							<li><a href="<c:url value="/j_spring_security_logout"/>">
+									<fmt:message key="navigate.logout" />
+							</a></li>
+						</c:if>
+					</ul>
+				</div>
+			</c:if>
+		</div>
+
+<!-- Ensue some space before the footer -->
+<div style="padding-top:10pt"></div>
+
+<hr/>
+
+<div id="footer" class="clearfix">
+	<span id="left">
+		<img src="<c:url value="/images/pivotal-logo.png"/>" />
+	</span>
+
+	<span id="right">
+		<c:if test="${!empty sessionScope['SPRING_SECURITY_CONTEXT']}">
+			<a href="<c:url value="/j_spring_security_logout"/>">
+				<fmt:message key="navigate.logout" />
+			</a>
+		</c:if>
+	</span>
+
+	<span id="center">
+		<fmt:message key="footer.message" />
+	</span>
+</div>
+
+	</div>
+</body>
+</html>
+
