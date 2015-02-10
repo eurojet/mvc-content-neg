@@ -10,7 +10,7 @@ RESTful with HAL+JSON (HATEOAS) at entry point: /rest
 
 Updated to Spring Boot version 1.1.10
 
-Internatinalization I18N with Englis and Spanish
+Internatinalization I18N with English and Spanish
 
 Only JSP and JSTL standard views. 
 
